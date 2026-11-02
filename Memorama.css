@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Bahnschrift SemiBold", Bahnschrift, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.memorama-container {
+    position:relative;
+    top: 40px;
+    padding: 30px;
+    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
+    text-align: center;
+    background-color: #176987;
+    border-bottom: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.memorama-container h1 {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: #f9fafa;
+}
+
+.instrucciones {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.puntuacion {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.puntuacion span {
+    color: rgba(255,255,255,0.9);
+}
+
+.puntuacion strong {
+    color: #fdfdfd;
+    font-size: 1.4rem;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tarjeta {
+    aspect-ratio: 1;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover {
+    transform: scale(1.02);
+}
+
+.tarjeta-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.tarjeta.volteada .tarjeta-inner {
+    transform: rotateY(180deg);
+}
+
+.tarjeta-front,
+.tarjeta-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.tarjeta-front {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    font-size: 3rem;
+    color: #fafafa;
+    border: 3px solid #09ceff;
+}
+
+.tarjeta-back {
+    background: #fff;
+    transform: rotateY(180deg);
+    border: 3px solid transparent;
+    padding: 10px;
+}
+
+.tarjeta.encontrada .tarjeta-back {
+    border-color: #27ae60;
+    box-shadow: 0 0 15px rgba(39, 174, 96, 0.5);
+}
+
+/* Estilos para el logo */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.logo-imagen {
+    width: 80%;
+    height: auto;
+    max-height: 70%;
+    object-fit: contain;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    background: white;
+    padding: 5px;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.equipo-nombre {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.5);
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.btn-reiniciar {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background: #09ceff;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-reiniciar:hover {
+    background: #09ceff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .tablero {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .puntuacion {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .memorama-container {
+        margin: auto;
+    }
+    
+    .memorama-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .logo-imagen {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tablero {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .equipo-nombre {
+        margin-bottom:10px;
+        margin-top:0px;
+        font-size: 0.7rem;
+    }
+    
+    .logo-imagen {
+        margin-bottom: 0px;
+        margin-top:0px;
+        padding: 0%;
+        width: 50px;
+        max-height: 50px;
+    }
+}

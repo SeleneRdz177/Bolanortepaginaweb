@@ -1,0 +1,104 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.contenido-principal {
+    padding: 20px 40px;
+    margin-top: 60px;
+}
+
+a {
+    text-decoration: none;
+    color:inherit;
+}
+
+h1 {
+    position: absolute;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.tabla-estadisticas {
+    margin-top: 40px;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+.tabla-estadisticas thead tr {
+    background-color: #176987; 
+    color: white;
+}
+
+.tabla-estadisticas th, 
+.tabla-estadisticas td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.col-team {
+    font-weight: bold;
+}
+
+.col-stat, .col-record, .col-streak {
+    text-align: center;
+}
+
+.team-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.tabla-estadisticas tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabla-estadisticas tbody tr:nth-child(odd) {
+    background-color: #e6e6e6;
+}
+
+.tabla-estadisticas tbody tr:hover {
+    background-color: #d1d1d1;
+    cursor: default;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+
+    .contenido-principal {
+        padding: 20px 10px;
+        overflow-x: auto;
+    }
+
+    h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .tabla-estadisticas {
+        min-width: 650px;
+        font-size: 14px;
+    }
+
+    .tabla-estadisticas th,
+    .tabla-estadisticas td {
+        padding: 8px 10px;
+    }
+
+    .team-logo {
+        width: 22px;
+        height: 22px;
+        margin-right: 6px;
+    }
+}

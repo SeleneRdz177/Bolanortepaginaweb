@@ -1,0 +1,694 @@
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    font-family:
+        "Bahnschrift SemiBold",
+        Bahnschrift,
+        Arial,
+        sans-serif;
+    color: #111111;
+}
+
+
+/* ========================================
+   PÁGINA DE GALERÍA
+======================================== */
+
+.galeria-pagina {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 25px 40px;
+}
+
+
+/* ========================================
+   TÍTULO
+======================================== */
+
+.galeria-titulo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.galeria-titulo h1 {
+    color: #176987;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.galeria-titulo p {
+    font-size: 18px;
+    color: #555555;
+}
+
+
+/* ========================================
+   GALERÍA
+======================================== */
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 25px;
+}
+
+.imagen-card {
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.imagen-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.2);
+}
+
+.imagen-card img {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+    display: block;
+
+    border-radius: 10px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.imagen-card:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ========================================
+   EDITOR
+======================================== */
+
+.editor {
+    position: fixed;
+    inset: 0;
+
+    background-color:
+        rgba(0, 0, 0, 0.8);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2000;
+
+    padding: 20px;
+}
+
+.editor.abierto {
+    display: flex;
+}
+
+
+/* ========================================
+   CONTENIDO DEL EDITOR
+======================================== */
+
+.editor-contenido {
+    position: relative;
+
+    width: 100%;
+    max-width: 1000px;
+
+    max-height: 95vh;
+
+    overflow-y: auto;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+}
+
+
+/* ========================================
+   BOTÓN CERRAR
+======================================== */
+
+.cerrar-editor {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #176987;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.cerrar-editor:hover {
+    background-color: #2385a5;
+}
+
+
+/* ========================================
+   CONTENEDOR DE IMAGEN
+======================================== */
+
+.imagen-editor {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #eeeeee;
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   IMAGEN PRINCIPAL
+======================================== */
+
+.imagen-editor img {
+    max-width: 100%;
+    max-height: 500px;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 10px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ========================================
+   TÍTULO FILTROS
+======================================== */
+
+.filtros h2 {
+    color: #176987;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+
+    border-bottom:
+        3px solid #176987;
+
+    padding-bottom: 8px;
+}
+
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.filtros-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.filtro-btn {
+    border:
+        2px solid #176987;
+
+    background-color: white;
+
+    color: #176987;
+
+    border-radius: 10px;
+
+    padding: 13px 8px;
+
+    font-family:
+        "Bahnschrift SemiBold",
+        Bahnschrift,
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.filtro-btn:hover {
+    background-color: #176987;
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 12px
+        rgba(23, 105, 135, 0.3);
+}
+
+.filtro-btn.activo {
+    background-color: #176987;
+
+    color: white;
+
+    box-shadow:
+        0 4px 12px
+        rgba(23, 105, 135, 0.35);
+}
+
+
+/* ========================================
+   ORIGINAL
+======================================== */
+
+.filtro-normal {
+    filter: none;
+}
+
+
+/* ========================================
+   ABERRACIÓN CROMÁTICA
+======================================== */
+
+.filtro-aberracion {
+    filter:
+        contrast(125%)
+        saturate(150%);
+
+    transform:
+        translateX(3px);
+}
+
+.filtro-aberracion::before,
+.filtro-aberracion::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        var(--imagen-url);
+
+    background-size: contain;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+}
+
+.filtro-aberracion::before {
+    transform:
+        translateX(-5px);
+
+    opacity: 0.6;
+
+    mix-blend-mode: screen;
+
+    filter:
+        hue-rotate(120deg)
+        saturate(300%);
+}
+
+.filtro-aberracion::after {
+    transform:
+        translateX(5px);
+
+    opacity: 0.6;
+
+    mix-blend-mode: screen;
+
+    filter:
+        hue-rotate(-120deg)
+        saturate(300%);
+}
+
+
+/* ========================================
+   GLITCH
+======================================== */
+
+.filtro-glitch {
+    filter:
+        contrast(150%)
+        saturate(180%);
+
+    animation:
+        glitch-movimiento
+        0.25s
+        infinite;
+}
+
+@keyframes glitch-movimiento {
+
+    0% {
+        transform:
+            translate(0);
+    }
+
+    20% {
+        transform:
+            translate(-4px, 2px);
+    }
+
+    40% {
+        transform:
+            translate(4px, -2px);
+    }
+
+    60% {
+        transform:
+            translate(-2px, 1px);
+    }
+
+    80% {
+        transform:
+            translate(3px, -1px);
+    }
+
+    100% {
+        transform:
+            translate(0);
+    }
+}
+
+
+/* ========================================
+   NEÓN
+======================================== */
+
+.filtro-neon {
+    filter:
+        saturate(250%)
+        contrast(145%)
+        brightness(110%)
+        hue-rotate(10deg)
+        drop-shadow(
+            0 0 8px #00ffff
+        )
+        drop-shadow(
+            0 0 15px #ff00ff
+        );
+}
+
+
+/* ========================================
+   GLOW
+======================================== */
+
+.filtro-glow {
+    filter:
+        brightness(120%)
+        saturate(180%)
+        contrast(115%)
+        drop-shadow(
+            0 0 6px white
+        )
+        drop-shadow(
+            0 0 15px #176987
+        )
+        drop-shadow(
+            0 0 30px #176987
+        );
+}
+
+
+/* ========================================
+   CYBER
+======================================== */
+
+.filtro-cyber {
+    filter:
+        saturate(250%)
+        contrast(160%)
+        brightness(105%)
+        hue-rotate(55deg);
+}
+
+
+/* ========================================
+   DESENFOQUE
+======================================== */
+
+.filtro-desenfoque {
+    filter:
+        blur(3px);
+}
+
+
+/* ========================================
+   CÁLIDO
+======================================== */
+
+.filtro-calido {
+    filter:
+        saturate(180%)
+        brightness(115%)
+        contrast(110%)
+        hue-rotate(-15deg);
+}
+
+
+/* ========================================
+   FRÍO
+======================================== */
+
+.filtro-frio {
+    filter:
+        saturate(150%)
+        brightness(110%)
+        contrast(120%)
+        hue-rotate(35deg);
+}
+
+
+/* ========================================
+   INTENSO
+======================================== */
+
+.filtro-intenso {
+    filter:
+        saturate(280%)
+        contrast(150%)
+        brightness(110%);
+}
+
+
+/* ========================================
+   OSCURO
+======================================== */
+
+.filtro-oscuro {
+    filter:
+        brightness(55%)
+        contrast(150%)
+        saturate(140%);
+}
+
+
+/* ========================================
+   RETRO
+======================================== */
+
+.filtro-retro {
+    filter:
+        saturate(160%)
+        contrast(125%)
+        brightness(95%)
+        hue-rotate(-20deg);
+}
+
+
+/* ========================================
+   ANIMACIÓN PARA GLITCH
+======================================== */
+
+.filtro-glitch {
+    animation:
+        glitch-movimiento
+        0.2s
+        infinite;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .galeria-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .filtros-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* ========================================
+   CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+
+    .galeria-pagina {
+        padding:
+            80px 15px 25px;
+    }
+
+    .galeria-titulo h1 {
+        font-size: 30px;
+    }
+
+    .galeria-titulo p {
+        font-size: 16px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .imagen-card img {
+        height: 150px;
+    }
+
+    .editor {
+        padding: 10px;
+    }
+
+    .editor-contenido {
+        padding: 15px;
+
+        border-radius: 15px;
+
+        max-height: 95vh;
+    }
+
+    .imagen-editor {
+        padding: 8px;
+    }
+
+    .imagen-editor img {
+        max-height: 350px;
+    }
+
+    .filtros h2 {
+        font-size: 24px;
+    }
+
+    .filtros-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .filtro-btn {
+        font-size: 14px;
+
+        padding:
+            12px 5px;
+    }
+
+}
+/* ========================================
+   SOPORTE PARA VIDEOS
+======================================== */
+.video-card { position: relative; }
+.imagen-card video {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.video-indicador {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 7px 12px;
+    color: white;
+    background: rgba(0, 0, 0, 0.72);
+    border-radius: 8px;
+    pointer-events: none;
+}
+.imagen-editor video {
+    max-width: 100%;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+@media (max-width: 600px) {
+    .imagen-card video { height: 150px; }
+    .imagen-editor video { max-height: 350px; }
+}
